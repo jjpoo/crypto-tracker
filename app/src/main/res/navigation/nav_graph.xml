@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_coins">
+
+    <fragment
+        android:id="@+id/fragment_coins"
+        android:name="com.nosova.simple.coins.crypto_tracker.presentation.screens.CoinsFragment"
+        android:label="fragment_coins"
+        tools:layout="@layout/fragment_coins">
+        <action
+            android:id="@+id/action_coinsFragment_to_blankFragment"
+            app:destination="@id/fragment_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_details"
+        android:name="com.nosova.simple.coins.crypto_tracker.presentation.screens.CoinDetailsFragment"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragment_coin_details">
+        <argument
+            android:name="coinArgs"
+            app:argType="com.nosova.simple.coins.crypto_tracker.domain.model.Coin" />
+    </fragment>
+
+</navigation>

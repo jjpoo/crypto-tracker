@@ -58,7 +58,7 @@ object NetworkModule {
                 .newBuilder()
                 .addHeader(
                     "x-api-key",
-                    "coinranking4203b4bf9d115640c27b9f265af44bca711657a463a3e5db"
+                    Constants.API_KEY
                 )
                 .build()
             chain.proceed(request)
