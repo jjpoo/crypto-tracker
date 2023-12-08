@@ -11,6 +11,7 @@ import com.nosova.simple.coins.crypto_tracker.R
 import com.nosova.simple.coins.crypto_tracker.databinding.CoinItemBinding
 import com.nosova.simple.coins.crypto_tracker.common.toPrice
 import com.nosova.simple.coins.crypto_tracker.domain.model.Coin
+import com.nosova.simple.coins.crypto_tracker.presentation.screens.CoinsFragmentDirections
 
 class CoinRankingAdapter : PagingDataAdapter<Coin, CoinsViewHolder>(ListComparator) {
     override fun onBindViewHolder(holder: CoinsViewHolder, position: Int) {
@@ -23,8 +24,9 @@ class CoinRankingAdapter : PagingDataAdapter<Coin, CoinsViewHolder>(ListComparat
             loadCoinImage(ivCoin, coin.iconUrl)
 
             holder.itemView.setOnClickListener {
+                val action = CoinsFragmentDirections.actionCoinsFragmentToBlankFragment(coin)
                 val navController = Navigation.findNavController(it)
-                navController.navigate(R.id.action_coinsFragment_to_blankFragment)
+                navController.navigate(action)
             }
         }
     }
